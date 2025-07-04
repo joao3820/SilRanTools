@@ -1,0 +1,55 @@
+\usepackage{authblk}  % criar afiliações do autor
+\usepackage{graphicx}  % inserir imagens
+\usepackage{amssymb}  % para mais ferramentas matemáticas
+\usepackage{array}  % opções para matrizes e tabelas
+\usepackage[hidelinks]{hyperref}  % inserir texto clicável
+\usepackage{cite}  % melhorar citação, ex: aparecer [2-7] em vez de [2,3,4,5,6,7]
+
+\usepackage{placeins}  % impede imagens de aparecerem na secção errada
+
+% A package placeins também permite usar o comando "\FloatBarrier"
+% Isto obriga o latex a colocar os restantes floats antes de avançar mais...
+
+\newtheorem{teorema}{Teorema}[section]
+\newtheorem{defin}{Definição}[section]
+% \newtheorem{nome_do_teorema}{output do pdf}[quando é que numeração recomeça]
+% Para o usar, temos de fazer \begin{nome_do_teorema} e \end{nome_do_teorema}
+
+% Se necessário mudar alguma desta marmelada para algo custom:
+% \usepackage{fontspec}
+% \setmainfont{Times New Roman}
+% \usepackage{geometry}
+% \geometry{verbose,tmargin=2.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm}
+% \usepackage{setspace}
+% \setstretch{1.5}
+
+\title{Título}  % Também é possível algo como: \title{\vspace{6cm} {\Huge Título}} para dar espaço acima e colocar título gigante
+\author{João Miguel Soares da Silva}
+\date{}
+\affil{Departamento de Física e Astronomia da Faculdade de Ciências da Universidade do Porto}
+
+% Para criar um comando simples, devemos fazer o seguinte:
+% \newcommand{nome_do_comando}[numero_de_argumentos][argumentos_default, terão de ser passados em parentesis retos]{comando}
+% Dentro do comando, devemon colocar #n para indicar "para aqui vai o n-ésimo argumento"
+% Argumentos que não têm default-value são colocados dentro das suas próprias chavetas
+
+\newcommand{\imagem}[4][12cm]{\begin{figure}[h!]
+	\centering
+	\includegraphics[width=#1]{#2} % imagem
+	\caption{#4} % legenda
+    \label{#3} % Label para referência com \ref{}
+\end{figure}}
+
+\newcommand{\imagemT}[2][0.3\textwidth]{\raisebox{-\totalheight}{\includegraphics[width=#1]{#2}}}
+
+%Depois do documento começar:
+% \pagenumbering{gobble}  -  retira a numeração das páginas seguintes
+% \pagenumbering{roman}  - muda a numeração das páginas seguintes para romano
+% \pagenumbering{alph}  - muda a numeração das páginas seguintes para alfabeto
+% \pagenumbering{arabic}  - muda para numeração normal
+
+%Bom para uma tese ou algo desse género:
+% \frontmatter  - numeração das páginas em romano (início)
+% \mainmatter  - numeração normal das páginas (para o verdadeiro conteúdo)
+
+% Bibliografia: podes usar o estilo "unsrt" - google it se não te lembras da convenção.
